@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce Bocado | Pastelería Artesanal en Puebla</title>
+    <!-- Fuentes: Fredoka y Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --rosa-pastel: #FFD1DC;
+            --rosa-fuerte: #FF8EAB;
+            --blanco: #FFFFFF;
+            --gris-oscuro: #5A5A5A;
+            --negro-opaco: #333333;
+            --amarillo-pastel: #FFF9C4;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--blanco);
+            color: var(--negro-opaco);
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, .logo, .btn-principal {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+        }
+        /* === HEADER === */
+        .site-header {
+            background-color: var(--blanco);
+            padding: 1.2rem 3rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(255, 142, 171, 0.15);
+            border-bottom: 3px dashed var(--rosa-pastel);
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-img {
+            height: 60px;
+            width: auto;
+           
+            background: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rosa-fuerte);
+            font-size: 1.8rem;
+        }
+        .logo-text {
+            font-size: 2.2rem;
+            color: var(--rosa-fuerte);
+            text-shadow: 2px 2px 0px rgba(255, 142, 171, 0.2);
+        }
+        .main-nav a {
+            margin-left: 2.2rem;
+            color: var(--gris-oscuro);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        .main-nav a:hover {
+            color: var(--rosa-fuerte);
+        }
+        .main-nav a::after {
+            content: '🍰';
+            position: absolute;
+            right: -25px;
+            top: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .main-nav a:hover::after {
+            opacity: 1;
+        }
+        /* === HERO === */
+        .hero {
+            background: linear-gradient(135deg, var(--rosa-pastel) 0%, var(--amarillo-pastel) 100%);
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 0 0 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FFFFFF" opacity="0.3" d="M50,10 C60,5 80,10 90,20 C95,30 90,40 80,50 C70,60 50,65 30,60 C20,55 10,45 15,30 C20,15 35,15 50,10 Z"/></svg>');
+            top: 20px;
+
+            left: 5%;
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            color: var(--rosa-fuerte);
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.8);
+        }
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--gris-oscuro);
+        }
+        .btn-principal {
+            background-color: var(--rosa-fuerte);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 6px 0px #ff7a9e;
+            position: relative;
+            top: 0;
+        }
+        .btn-principal:hover {
+            background-color: #ff7a9e;
+            top: -3px;
+            box-shadow: 0 9px 0px #ff6b93;
+        }
+        /* === SECCIONES === */
+        .seccion-contenedor {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .titulo-seccion h2 {
+            font-size: 2.8rem;
+            color: var(--rosa-fuerte);
+            background: white;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .titulo-seccion::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background-color: var(--rosa-pastel);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            border-radius: 4px;
+            z-index: 1;
+        }
+        /* === SECCIÓN 1: SOBRE NOSOTRAS === */
+        .sobre-nosotras {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .sobre-texto h3 {
+            font-size: 1.8rem;
+            color: var(--rosa-fuerte);
+            margin-bottom: 1.5rem;
+        }
+        .sobre-texto p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .sobre-iconos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .icono-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--rosa-pastel);
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+        .icono-item:hover {
+            transform: translateY(-10px);
+        }
+        .icono-item i {
+            font-size: 2.5rem;
+            color: var(--rosa-fuerte);
+            margin-bottom: 1rem;
+        }
+        .sobre-imagen img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 15px 15px 0px var(--rosa-pastel);
+        }
+        /* === SECCIÓN 2: PRODUCTOS === */
+        #productos {
+            background-color: #FFF9F9;
+            border-radius: 40px;
+        }
+        .categorias-productos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+        .categoria-card {
+            background: white;
+            border-radius: 25px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(255, 142, 171, 0.1);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+        .categoria-card:hover {
+            border-color: var(--rosa-fuerte);
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 142, 171, 0.2);
+        }
+        .categoria-icono {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--rosa-fuerte);
+        }
+        .categoria-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--gris-oscuro);
+        }
+        /* === SECCIÓN 3: GALERÍA   === */
+        .galeria-tienda {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .producto-galeria {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        .producto-galeria:hover {
+            transform: translateY(-10px);
+        }
+        .producto-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .producto-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .producto-nombre {
+            font-weight: 600;
+            color: var(--negro-opaco);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .producto-precio {
+            color: var(--rosa-fuerte);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+        /* === SECCIÓN 4: FORM  === */
+        #formulario-contacto {
+            background: linear-gradient(135deg, var(--rosa-pastel) 0%, #FFECF1 100%);
+            border-radius: 40px;
+            padding: 4rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .form-grupo {
+            margin-bottom: 1.8rem;
+        }
+        .form-grupo label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--gris-oscuro);
+            font-size: 1.1rem;
+        }
+        .form-grupo input,
+        .form-grupo select,
+        .form-grupo textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid #FFC1D0;
+            border-radius: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: white;
+        }
+        .form-grupo input:focus,
+        .form-grupo select:focus,
+        .form-grupo textarea:focus {
+            outline: none;
+            border-color: var(--rosa-fuerte);
+            box-shadow: 0 0 0 3px rgba(255, 142, 171, 0.2);
+        }
+        .ancho-completo {
+            grid-column: 1 / 3;
+        }
+        .btn-enviar {
+            background-color: var(--rosa-fuerte);
+            color: white;
+            border: none;
+            padding: 1.5rem 4rem;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 2rem;
+            box-shadow: 0 6px 0px #ff7a9e;
+            position: relative;
+            top: 0;
+        }
+        .btn-enviar:hover {
+            background-color: #ff7a9e;
+            top: -3px;
+            box-shadow: 0 9px 0px #ff6b93;
+        }
+        #mensaje-confirmacion {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            display: none;
+            font-weight: 600;
+            color: var(--rosa-fuerte);
+            border: 2px dashed var(--rosa-fuerte);
+        }
+        /* === FOOTER === */
+        .site-footer {
+            background-color: var(--negro-opaco);
+            color: white;
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+        }
+        .footer-logo {
+            font-size: 2.5rem;
+            color: var(--rosa-pastel);
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        .footer-info {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--rosa-pastel);
+        }
+        /* === ANIMACIONES === */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @media (max-width: 1100px) {
+            .categorias-productos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .galeria-tienda {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 1rem;
+                flex-direction: column;
+            }
+            .main-nav {
+                margin-top: 1rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-nav a {
+                margin: 0 1rem;
+                font-size: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .sobre-nosotras {
+                grid-template-columns: 1fr;
+            }
+            .sobre-iconos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .categorias-productos {
+                grid-template-columns: 1fr;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .ancho-completo {
+                grid-column: 1;
+            }
+            .seccion-contenedor {
+                padding: 4rem 1.5rem;
+            }
+            #formulario-contacto {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .sobre-iconos {
+                grid-template-columns: 1fr;
+            }
+            .titulo-seccion h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- === HEADER === -->
+<header class="site-header">
+        <div class="logo-container">
+        
+            <div class="logo-img">
+             <img src="images/dulcebocado.svg" alt="Dulce Bocado" style="height: 100%; width: auto;">
+           
+            </div>
+           
+        </div>
+        <nav class="main-nav">
+            <a href="#sobre-nosotras">Sobre nosotras</a>
+            <a href="#productos">Productos</a>
+            <a href="#galeria">Galería</a>
+            <a href="#contacto">Hacer pedido</a>
+        </nav>
+    </header>
+
+    <!-- === HERO === -->
+    <section class="hero">
+        <h1>¡Cada Mordida es</h1>
+        <h1>un Momento Feliz! 🧁</h1>
+<p>Pasteles artesanales, galletas decoradas y postres adorablemente deliciosos. Hacemos entregas en toda Puebla para endulzar tu día.</p>
+        <a href="#contacto" class="btn-principal">¡Quiero mi Dulce Bocado!</a>
+    </section>
+
+    <!-- === SECCIÓN 1: SOBRE NOSOTRAS === -->
+    <section id="sobre-nosotras" class="seccion-contenedor">
+        <div class="titulo-seccion"><h2>Sobre Nosotras</h2></div>
+        <div class="sobre-nosotras">
+            <div class="sobre-texto">
+                <h3>Dulce Bocado:&nbsp; Mucho más que una pastelería</h3>
+                <p>En <strong>Dulce Bocado</strong> creamos momentos felices a través de la repostería. Somos un equipo de apasionadas por los postres que creemos que un buen pastel puede cambiar el día de cualquiera.</p>
+                <p>Todos nuestros productos son <strong>100% artesanales</strong>, hechos con ingredientes de la mejor calidad y mucho, mucho cariño. Desde la masa hasta la decoración final, cada detalle es cuidado con amor.</p>
+                <p>¡Hacemos entregas en toda la ciudad de <strong>Puebla</strong>! Porque creemos que la felicidad debe llegar fresca y deliciosa a tu puerta.</p>
+                
+                <div class="sobre-iconos">
+                    <div class="icono-item">
+                        <i class="fas fa-heart"></i>
+                        <p>Hecho con Amor</p>
+                    </div>
+                    <div class="icono-item">
+                        <i class="fas fa-leaf"></i>
+                        <p>Ingredientes Naturales</p>
+                    </div>
+                    <div class="icono-item">
+                        <i class="fas fa-truck"></i>
+                        <p>Entrega en Puebla</p>
+                    </div>
+                </div>
+          </div>
+            <div class="sobre-imagen">
+              <img src="https://images.pexels.com/photos/227432/pexels-photo-227432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pasteleras de Dulce Bocado trabajando">
+            </div>
+        </div>
+</section>
+
+    <!-- === SECCIÓN 2: PRODUCTOS === -->
+    <section id="productos" class="seccion-contenedor">
+        <div class="titulo-seccion"><h2>Nuestros productos</h2>
+        </div>
+        <div class="categorias-productos">
+            <div class="categoria-card">
+                <div class="categoria-icono">🎄</div>
+                <h3>De Navidad</h3>
+                <p>Galletas decoradas, troncos de Navidad y postres festivos para tus celebraciones.</p>
+            </div>
+            <div class="categoria-card">
+                <div class="categoria-icono">🎂</div>
+                <h3>Pasteles</h3>
+                <p>Para cumpleaños, aniversarios o cualquier ocasión especial. ¡Personalízalos!</p>
+            </div>
+            <div class="categoria-card">
+                <div class="categoria-icono">🎁</div>
+                <h3>Para Regalar</h3>
+                <p>Cajas de galletas, cupcakes y mini postres perfectos para regalar.</p>
+            </div>
+            <div class="categoria-card">
+                <div class="categoria-icono">🍰</div>
+                <h3>Postres</h3>
+                <p>Cheesecakes, tartas, mousses y mucho más para el antojo dulce.</p>
+            </div>
+            <div class="categoria-card">
+                <div class="categoria-icono">✨</div>
+                <h3>Personalizados</h3>
+                <p>¡Diseñamos tu pastel soñado! Con tus colores, personajes o tema favorito.</p>
+            </div>
+            <div class="categoria-card">
+                <div class="categoria-icono">🍪</div>
+                <h3>Galletas</h3>
+                <p>Decoradas a mano con diseños adorables y sabores increíbles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECCIÓN 3: GALERÍA  === -->
+    <section id="galeria" class="seccion-contenedor">
+        <div class="titulo-seccion"><h2>Nuestra galería de Sabores</h2>
+        </div>
+        <p style="text-align:center; margin-bottom:3rem; font-size:1.2rem; color: var(--gris-oscuro);">¡Mira todas nuestras creaciones! Cada una tiene nombre y precio. 💕</p>
+        
+        <div class="galeria-tienda">
+            <!-- Producto 1 -->
+            <div class="producto-galeria">
+                <img src="https://images.pexels.com/photos/15472006/pexels-photo-15472006.jpeg" alt="Pastel de Fresa" class="producto-img">
+                <div class="producto-info">
+                    <div class="producto-nombre">Pastel "Fresita Feliz"</div>
+                    <div class="producto-precio">$250</div>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="producto-galeria">
+                <img src="https://images.pexels.com/photos/1028704/pexels-photo-1028704.jpeg" alt="Cupcakes" class="producto-img">
+                <div class="producto-info">
+                    <div class="producto-nombre">Cupcakes Arcoíris</div>
+                    <div class="producto-precio">$35 c/u</div>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="producto-galeria">
+                <img src="https://images.pexels.com/photos/35052610/pexels-photo-35052610.jpeg" alt="Galletas Decoradas" class="producto-img">
+                <div class="producto-info">
+                    <div class="producto-nombre">Galletas Decoradas</div>
+                    <div class="producto-precio">$150 (6 pz)</div>
+                </div>
+            </div>
+            <!-- Producto 4 -->
+            <div class="producto-galeria">
+                <img src="https://images.pexels.com/photos/34638147/pexels-photo-34638147.jpeg" alt="Tarta de Chocolate" class="producto-img">
+                <div class="producto-info">
+                    <div class="producto-nombre">Tarta Chocolate Supreme</div>
+                    <div class="producto-precio">$400</div>
+                </div>
+            </div>
+            <!-- Producto 5 -->
+            <div class="producto-galeria">
+                <img src="https://images.pexels.com/photos/4110004/pexels-photo-4110004.jpeg" alt="Postre Individual" class="producto-img">
+                <div class="producto-info">
+                    <div class="producto-nombre">Pastel "Nube de Vainilla"</div>
+                    <div class="producto-precio">$400</div>
+                </div>
+            </div>
+            <!-- Producto 6 -->
+            <div class="producto-galeria">
+                <img src="https://images.pexels.com/photos/35011684/pexels-photo-35011684.jpeg" alt="Pastel Navideño" class="producto-img">
+                <div class="producto-info">
+                    <div class="producto-nombre">Tronco de Navidad</div>
+                    <div class="producto-precio">$380</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECCIÓN 4: FORM === -->
+    <section id="contacto" class="seccion-contenedor" style="padding-top:0;">
+        <div id="formulario-contacto">
+            <div class="titulo-seccion"><h2>¡Haz tu pedido!</h2>
+            </div>
+            <p style="text-align:center; margin-bottom:3rem; font-size:1.2rem; color: var(--gris-oscuro);">Cuéntanos qué te gustaría ordenar. Nos pondremos en contacto contigo para confirmar todos los detalles. 🧁</p>
+            
+            <form id="formPedido" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="POST">
+                <div class="form-grid">
+                    <div class="form-grupo">
+                        <label for="nombre">Tu nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej: María González">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="contacto">Correo o teléfono para contactarte *</label>
+                        <input type="text" id="contacto" name="contacto" required placeholder="Ej: alejandra@gmail.com o 2211234567">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="producto_interes">¿Qué producto te interesa? *</label>
+                        <select id="producto_interes" name="producto_interes" required>
+                            <option value="" disabled selected>Elige una opción</option>
+                            <option value="navidad">Productos de Navidad</option>
+                            <option value="pastel">Pasteles</option>
+                            <option value="regalo">Para regalar</option>
+                            <option value="postre">Postres</option>
+                            <option value="personalizado">Personalizado</option>
+                            <option value="galletas">Galletas</option>
+                            <option value="varios">Varios productos</option>
+                        </select>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="fecha_entrega">Fecha deseada de entrega *</label>
+                        <input type="date" id="fecha_entrega" name="fecha_entrega" required>
+                    </div>
+                    <div class="form-grupo ancho-completo">
+                        <label for="mensaje">Mensaje o comentarios sobre tu pedido</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Ej: Quiero un pastel de chocolate para 20 personas, con decoración de unicornio. O: Necesito una caja de galletas para regalo de empresa..."></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-enviar">
+                    <i class="fas fa-paper-plane"></i> ENVIAR SOLICITUD DE PEDIDO
+                </button>
+            </form>
+            <p id="mensaje-confirmacion"></p>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="site-footer">
+        <div>
+                      <img src="images/dulcebocado.svg" alt="Dulce Bocado" style="height: 60px;">
+        </div>
+        
+        <div class="footer-info">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>Pastelería Artesanal en Puebla</strong></p>
+            <p style="margin-bottom: 1rem;">📍 Hacemos entregas en toda la ciudad de Puebla</p>
+            <p style="margin-bottom: 1rem;">📞 Teléfono: 222 123 4567</p>
+            <p>🕒 Horario: Lunes a Sábado 9:00 AM - 8:00 PM</p>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+        
+        <p style="margin-top: 3rem; opacity: 0.7; font-size: 0.9rem;">© 2025 Dulce Bocado. Hecho con mucho amor y azúcar. 🍪</p>
+    </footer>
+
+    <script>
+        
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(255, 142, 171, 0.25)';
+            } else {
+                header.style.boxShadow = '0 4px 12px rgba(255, 142, 171, 0.15)';
+            }
+        });
+        
+        // Manejo del formulario
+        document.getElementById('formPedido').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            const mensaje = document.getElementById('mensaje-confirmacion');
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
+            submitBtn.disabled = true;
+            mensaje.style.display = 'none';
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                mode: 'no-cors'
+            })
+            .then(() => {
+                mensaje.innerHTML = '🎉 ¡Gracias! Recibimos tu solicitud. Nos pondremos en contacto contigo en menos de 24 horas.';
+                mensaje.style.color = 'var(--rosa-fuerte)';
+                mensaje.style.display = 'block';
+                form.reset();
+            })
+            .catch(() => {
+                mensaje.innerHTML = '⚠️ Oops, hubo un error. Por favor, intenta nuevamente o contáctanos al 222 123 4567.';
+                mensaje.style.color = '#ff3333';
+                mensaje.style.display = 'block';
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                setTimeout(() => { 
+                    mensaje.style.display = 'none'; 
+                }, 8000);
+            });
+        });
+        
+        // Fecha mínima para el formulario (hoy)
+        document.getElementById('fecha_entrega').min = new Date().toISOString().split("T")[0];
+    </script>
+</body>
+</html>
